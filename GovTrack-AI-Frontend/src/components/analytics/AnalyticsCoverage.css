@@ -1,0 +1,161 @@
+﻿.coverage-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 30px 0 44px;
+  background: #f7fbff;
+}
+.coverage-section::after {
+  content: "";
+  position: absolute;
+  inset: 450px 0 0;
+  z-index: -1;
+  background: radial-gradient(ellipse at 85% 8%, #e1f1ff, transparent 34%), radial-gradient(ellipse at 2% 90%, #e8f2ff, transparent 35%);
+}
+.coverage-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: 24px; }
+.coverage-left, .coverage-right { min-width: 0; }
+.coverage-intro { min-height: 305px; }
+.coverage-intro h2 {
+  margin: 17px 0 10px;
+  color: #11172f;
+  font-size: clamp(52px, 4.75vw, 68px);
+  line-height: 1.01;
+  letter-spacing: -.05em;
+  font-weight: 800;
+}
+.coverage-intro p { max-width: 590px; margin: 0; color: #5c6d8c; font-size: 17px; line-height: 1.5; }
+.coverage-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.coverage-panel {
+  min-width: 0;
+  border: 1px solid #e5edf8;
+  border-radius: 16px;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 13px 28px rgba(39,91,155,.06);
+}
+.coverage-panel-title { display: flex; justify-content: space-between; align-items: center; gap: 8px; color: #1e2d53; font-size: 13px; }
+.coverage-panel-title strong { font-weight: 700; }
+.coverage-panel-title span { color: #7d8ca6; font-weight: 500; }
+.coverage-panel-title svg { color: #7890b4; flex: none; }
+.risk-panel, .coverage-trend-panel { height: 268px; padding: 18px 17px; }
+.risk-panel-body { display: flex; align-items: center; justify-content: space-between; gap: 10px; height: calc(100% - 22px); }
+.coverage-donut { width: 155px; height: 155px; flex: none; display: grid; place-items: center; border-radius: 50%; transform: rotate(-30deg); }
+.coverage-donut > div { width: 112px; height: 112px; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; background: white; transform: rotate(30deg); }
+.coverage-donut strong { color: #1e2d53; font-size: 21px; line-height: 1; }
+.coverage-donut span { margin-top: 5px; color: #7890ad; font-size: 10px; }
+.coverage-risk-legend { min-width: 115px; flex: 1; }
+.coverage-risk-legend > div { display: grid; grid-template-columns: 8px minmax(0,1fr) auto; align-items: center; gap: 4px 6px; margin: 10px 0; color: #60728f; font-size: 10px; }
+.coverage-risk-legend .map-dot { width: 8px; height: 8px; }
+.coverage-risk-legend strong { color: #263759; font-size: 12px; }
+.coverage-risk-legend small { grid-column: 3; color: #a1adc1; text-align: right; font-size: 9px; }
+.map-dot { display: inline-block; width: 8px; height: 8px; flex: none; border-radius: 50%; }
+.map-dot.on-track { background: #30c181; }
+.map-dot.at-risk { background: #ff942c; }
+.map-dot.delayed { background: #f45c63; }
+.coverage-trend-chart { position: relative; height: 163px; margin: 10px 0 0; }
+.coverage-trend-chart svg { width: 100%; height: 100%; overflow: visible; }
+.trend-callout { position: absolute; right: 0; top: 0; display: flex; flex-direction: column; padding: 7px 9px; border-radius: 8px; background: rgba(244,255,249,.95); }
+.trend-callout strong { color: #23bc76; font-size: 15px; }
+.trend-callout small { color: #647993; font-size: 9px; }
+.coverage-chart-years { display: flex; justify-content: space-between; color: #9aaac1; font-size: 9px; }
+.coverage-chart-legend { display: flex; justify-content: center; gap: 13px; margin-top: 5px; color: #687d99; font-size: 9px; }
+.coverage-chart-legend span { display: inline-flex; align-items: center; gap: 4px; }
+.coverage-metrics { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 11px; margin-top: 12px; }
+.coverage-metric { min-width: 0; min-height: 169px; display: flex; flex-direction: column; align-items: flex-start; padding: 17px 16px 13px; border: 1px solid #e8eef8; border-radius: 16px; background: rgba(255,255,255,.94); box-shadow: 0 13px 28px rgba(39,91,155,.05); }
+.coverage-metric-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; }
+.metric-orange .coverage-metric-icon { color: #ff7e22; background: #fff0e5; }
+.metric-blue .coverage-metric-icon { color: #2672ef; background: #e8f2ff; }
+.metric-green .coverage-metric-icon { color: #18b972; background: #e6f8ee; }
+.metric-purple .coverage-metric-icon { color: #8458ea; background: #f0eaff; }
+.coverage-metric > strong { margin-top: 13px; color: #1a284d; font-size: clamp(16px, 1.55vw, 23px); line-height: 1.12; font-weight: 800; letter-spacing: -.035em; white-space: nowrap; }
+.coverage-metric > span:not(.coverage-metric-icon) { color: #566b89; font-size: 11px; line-height: 1.25; }
+.metric-change { display: block; margin-top: auto; font-size: 10px; }
+.metric-change.down { color: #20b878; }
+.metric-change.up { color: #f06a4a; }
+.top-sectors { margin-top: 12px; min-height: 242px; padding: 17px 18px; }
+.sector-bars { display: flex; flex-direction: column; gap: 10px; margin-top: 13px; }
+.sector-bar-row { display: grid; grid-template-columns: 26px 135px minmax(40px,1fr) 33px 66px; align-items: center; gap: 6px; }
+.sector-bar-icon { width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; }
+.sector-bar-name { color: #344a70; font-size: 11px; white-space: nowrap; }
+.sector-bar-track { height: 9px; overflow: hidden; border-radius: 10px; background: #eaf0f9; }
+.sector-bar-track i { display: block; height: 100%; border-radius: inherit; }
+.sector-bar-row strong { color: #233455; font-size: 11px; text-align: right; }
+.sector-bar-row small { color: #91a1b8; font-size: 9px; white-space: nowrap; text-align: right; }
+.coverage-map-panel { min-height: 800px; position: relative; border-radius: 50%; background: radial-gradient(ellipse at 51% 47%, rgba(225,243,255,.93), rgba(224,241,255,.68) 53%, transparent 69%); }
+.map-control { position: absolute; z-index: 3; top: 18px; right: 8px; width: 265px; display: flex; flex-direction: column; gap: 5px; }
+.map-control label { color: #2d4569; font-size: 11px; font-weight: 700; }
+.map-control select { width: 100%; height: 38px; padding: 0 10px; border: 1px solid #d7e5f5; border-radius: 9px; color: #1f335a; background: rgba(255,255,255,.94); font-size: 12px; font-weight: 600; box-shadow: 0 7px 18px rgba(35,75,130,.08); }
+.india-map-frame { position: absolute; inset: 60px 0 38px; display: flex; justify-content: center; align-items: center; }
+.india-state-map { width: 100%; max-width: 565px; height: 100%; filter: drop-shadow(0 10px 13px rgba(30,107,189,.1)); }
+.india-state-map path { transition: fill .18s ease, filter .18s ease; }
+.india-state-map path:hover { filter: brightness(.88); }
+.map-result-card { position: absolute; z-index: 2; top: 195px; right: 0; width: 260px; min-height: 126px; display: flex; gap: 10px; padding: 16px; border: 1px solid #e3ecf9; border-radius: 16px; background: rgba(255,255,255,.97); box-shadow: 0 17px 32px rgba(29,81,145,.17); }
+.map-result-icon { width: 36px; height: 36px; flex: none; display: grid; place-items: center; color: #286ef4; background: #e5efff; border-radius: 10px; }
+.map-result-main { min-width: 0; }
+.map-result-name { display: block; color: #26395d; font-size: 11px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.map-result-main strong { display: block; margin-top: 11px; color: #1c2d51; font-size: 22px; font-weight: 800; }
+.map-result-main small { color: #72839c; font-size: 9px; white-space: nowrap; }
+.map-result-legend { display: flex; flex-direction: column; gap: 8px; min-width: 92px; margin-left: auto; font-size: 9px; color: #60718e; }
+.map-result-legend span { display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+.map-result-legend b { margin-left: auto; color: #1d2e52; font-size: 9px; }
+.map-result-legend .map-dot { width: 7px; height: 7px; }
+.map-instruction { position: absolute; left: 14px; bottom: 24px; margin: 0; color: #647b9c; font-size: 11px; }
+.map-attribution { position: absolute; left: 14px; bottom: 3px; color: #8095af; font-size: 9px; text-decoration: underline; text-underline-offset: 2px; }
+.sector-explorer { padding: 17px 18px; min-height: 212px; }
+.sector-chip-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin-top: 16px; }
+.sector-chip { min-width: 0; display: flex; align-items: center; gap: 6px; padding: 7px 6px; border: 1px solid #e7eef9; border-radius: 12px; background: #fff; color: #3d5377; text-align: left; font-size: 10px; font-weight: 600; }
+.sector-chip:hover, .sector-chip.is-selected { border-color: #8eb8f6; background: #f4f8ff; }
+.sector-chip span { width: 28px; height: 28px; flex: none; display: grid; place-items: center; border-radius: 50%; }
+.sector-selection { margin: 9px 0 0; color: #3567b1; font-size: 11px; }
+.coverage-cta { float: right; margin-top: 22px; }
+@media (max-width: 1250px) {
+  .coverage-grid { grid-template-columns: minmax(0,1fr) minmax(0,.9fr); gap: 16px; }
+  .coverage-intro h2 { font-size: clamp(47px, 4.8vw, 60px); }
+  .coverage-donut { width: 125px; height: 125px; }
+  .coverage-donut > div { width: 89px; height: 89px; }
+  .coverage-donut strong { font-size: 17px; }
+  .coverage-metric { padding: 14px 10px 11px; }
+  .coverage-metric > strong { font-size: 17px; }
+  .sector-bar-row { grid-template-columns: 24px 100px minmax(30px,1fr) 30px 53px; }
+  .sector-bar-name { font-size: 10px; }
+  .map-result-card { width: 235px; padding: 12px; }
+}
+@media (max-width: 1000px) {
+  .coverage-grid { grid-template-columns: 1fr; }
+  .coverage-intro { min-height: 0; padding-bottom: 30px; }
+  .coverage-right { display: grid; grid-template-columns: 1fr; }
+  .coverage-map-panel { min-height: 640px; max-width: 680px; width: 100%; margin: 0 auto; }
+  .sector-explorer { margin-top: 15px; }
+  .coverage-cta { justify-self: end; float: none; }
+}
+@media (max-width: 640px) {
+  .coverage-section { padding: 35px 0 45px; }
+  .coverage-intro h2 { font-size: clamp(41px, 10vw, 54px); }
+  .coverage-intro p { font-size: 14px; }
+  .coverage-chart-grid { grid-template-columns: 1fr; }
+  .risk-panel, .coverage-trend-panel { height: 230px; }
+  .risk-panel-body { justify-content: space-around; }
+  .coverage-trend-chart { height: 130px; }
+  .coverage-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .coverage-metric { min-height: 148px; }
+  .coverage-metric > strong { font-size: 18px; }
+  .sector-bar-row { grid-template-columns: 23px 95px minmax(20px,1fr) 28px; }
+  .sector-bar-row small { display: none; }
+  .coverage-map-panel { min-height: 0; border-radius: 24px; padding: 16px 0 25px; background: radial-gradient(ellipse at center, #e3f3ff, transparent 68%); }
+  .map-control { position: relative; top: auto; right: auto; width: 100%; padding: 0 8px; }
+  .india-map-frame { position: relative; inset: auto; height: 450px; margin-top: 10px; }
+  .india-state-map { max-width: 100%; }
+  .map-result-card { position: relative; top: auto; right: auto; width: min(100%, 330px); margin: -25px auto 0; }
+  .map-instruction, .map-attribution { position: static; margin: 12px 8px 0; }
+  .map-attribution { display: inline-block; margin-top: 4px; }
+  .sector-chip-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 380px) {
+  .coverage-donut { width: 118px; height: 118px; }
+  .coverage-donut > div { width: 85px; height: 85px; }
+  .coverage-risk-legend { min-width: 102px; }
+  .sector-bar-row { grid-template-columns: 22px 80px minmax(16px,1fr) 27px; }
+  .sector-bar-name { font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .india-state-map path { transition: none; }
+}

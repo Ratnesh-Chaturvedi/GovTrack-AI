@@ -1207,6 +1207,174 @@ Minimal duplication
 Easy to extend
 ```
 
+## UI Typography
+
+Use **Inter** as the primary font across the entire GovTrack AI application.
+
+Font import:
+- Google Font: Inter
+- Fallback: `sans-serif`
+
+### Font Usage
+
+#### Hero Headings
+Use for major page titles and hero text.
+
+- Font: Inter
+- Weight: 800
+- Recommended size: 56px–72px desktop
+- Line height: 1.0–1.1
+- Letter spacing: -0.04em
+
+Example:
+"Predictive Infrastructure Monitoring for Stronger Public Projects"
+
+#### Section Headings
+Use for major sections inside pages.
+
+- Font: Inter
+- Weight: 700
+- Recommended size: 36px–48px desktop
+- Line height: 1.1–1.2
+- Letter spacing: -0.03em
+
+#### Subheadings
+Use for section descriptions and secondary headings.
+
+- Font: Inter
+- Weight: 500–600
+- Recommended size: 18px–24px
+- Line height: 1.4
+
+#### Card Titles
+Use inside feature cards, analytics cards, project cards, and dashboard widgets.
+
+- Font: Inter
+- Weight: 600–700
+- Recommended size: 16px–20px
+
+#### Body Text
+Use for paragraphs, descriptions, explanations, and AI responses.
+
+- Font: Inter
+- Weight: 400
+- Recommended size: 15px–18px
+- Line height: 1.5–1.7
+- Color should be muted navy/gray rather than pure black.
+
+#### Navigation
+Use for navbar links and sidebar navigation.
+
+- Font: Inter
+- Weight: 500
+- Recommended size: 14px–16px
+
+Active navigation items may use:
+- Weight: 600
+- Orange accent
+- Soft orange background
+
+#### Buttons
+Use for CTA buttons and actions.
+
+- Font: Inter
+- Weight: 600
+- Recommended size: 14px–16px
+
+#### Dashboard KPI Numbers
+Use for metrics such as:
+- 1,981 Projects
+- ₹42.78 Lakh Cr
+- 18% Risk
+- 84% Progress
+
+Typography:
+- Font: Inter
+- Weight: 700–800
+- Recommended size: 24px–36px
+- Letter spacing: -0.02em
+
+#### Table Content
+Use in project tables and analytics tables.
+
+Headers:
+- Weight: 600
+- Size: 12px–14px
+
+Rows:
+- Weight: 400–500
+- Size: 13px–15px
+
+#### Badges / Pills / Labels
+Examples:
+- HIGH RISK
+- ON TRACK
+- AI INSIGHT
+- REAL-TIME MONITORING
+
+Typography:
+- Font: Inter
+- Weight: 600
+- Size: 11px–13px
+- Letter spacing: 0.03em
+- Uppercase where appropriate
+
+---
+
+## Typography Rules
+
+- Use Inter consistently throughout the application.
+- Do not mix multiple decorative fonts.
+- Avoid excessive font weights.
+- Primary hierarchy should rely on size, spacing, and weight.
+- Use dark navy instead of pure black for headings.
+- Maintain strong readability for government and analytics use cases.
+- Use responsive typography with `clamp()` where appropriate.
+- Keep large headings visually clean with tight letter spacing.
+- Dashboard text should prioritize readability over decoration.
+
+Recommended CSS:
+
+```css
+:root {
+  --font-primary: "Inter", sans-serif;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-weight: 400;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.body-text {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.kpi-value {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
 Do not optimize for simply producing the largest amount of code.
 
 The goal is a clean GovTrack AI codebase that another developer can understand and continue working on easily.

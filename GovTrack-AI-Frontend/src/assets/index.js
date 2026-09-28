@@ -1,0 +1,8 @@
+export const homeBackground = '/Govtrack-home-bg.png'
+export const coreCapabilitiesBackground = '/core-capabilit-section-img.png'
+export { default as sectorTransportImage } from './images/sector-transport.jpg'
+export { default as sectorEnergyImage } from './images/sector-energy.jpg'
+export { default as sectorWaterImage } from './images/sector-water.jpg'
+export { default as sectorCommunicationImage } from './images/sector-communication.jpg'
+export { default as sectorUrbanImage } from './images/sector-urban.jpg'
+export { default as sectorHealthImage } from './images/sector-health.jpg'
