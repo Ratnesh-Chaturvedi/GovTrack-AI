@@ -1,5 +1,6 @@
 export const homeBackground = '/Govtrack-home-bg.png'
 export const coreCapabilitiesBackground = '/core-capabilit-section-img.png'
+export { default as assistantBackground } from './images/assistant-background.jpg'
 export { default as sectorTransportImage } from './images/sector-transport.jpg'
 export { default as sectorEnergyImage } from './images/sector-energy.jpg'
 export { default as sectorWaterImage } from './images/sector-water.jpg'

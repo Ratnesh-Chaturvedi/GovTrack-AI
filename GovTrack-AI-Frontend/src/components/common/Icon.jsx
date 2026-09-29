@@ -25,6 +25,21 @@ const paths = {
   bolt: <path d="m13 2-9 11h7l-1 9 10-12h-7z" />,
   drop: <path d="M12 2c-2 4-7 8.8-7 13a7 7 0 0 0 14 0c0-4.2-5-9-7-13z" />,
   signal: <><path d="M12 19V9M8 19h8M9 13l3-4 3 4M5 10a10 10 0 0 1 0 8M19 10a10 10 0 0 1 0 8M2 6a15 15 0 0 0 0 12M22 6a15 15 0 0 1 0 12" /></>,
+  chat: <><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H8l-4 3v-5a7.5 7.5 0 1 1 16-5.5Z" /><path d="M8 11h8M8 14h5" /></>,
+  bot: <><rect x="4" y="7" width="16" height="13" rx="4" /><path d="M12 3v4M9 3h6M8 14h.01M16 14h.01M8 18h8" /></>,
+  user: <><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></>,
+  mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m4 7 8 6 8-6" /></>,
+  lock: <><rect x="5" y="10" width="14" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3" /></>,
+  eye: <><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z" /><circle cx="12" cy="12" r="2.5" /></>,
+  eyeOff: <><path d="M4 4 20 20M10 6.2a11 11 0 0 1 2-.2c6.5 0 10 6 10 6a15 15 0 0 1-3.2 3.6M6.6 7.1C3.5 9 2 12 2 12s3.5 6 10 6a11 11 0 0 0 3.7-.6" /></>,
+  search: <><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 5 5" /></>,
+  plus: <path d="M12 4v16M4 12h16" />,
+  send: <><path d="m22 2-7 20-4-9-9-4zM22 2 11 13" /></>,
+  paperclip: <path d="m8 12.5 5.6-5.6a3 3 0 0 1 4.2 4.2l-7.1 7.1a5 5 0 0 1-7.1-7.1l7.1-7.1" />,
+  thumbsUp: <><path d="M7 10v11H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2zM7 10l5-8a2 2 0 0 1 2 2v5h5a3 3 0 0 1 3 3l-1 6a3 3 0 0 1-3 3H7" /></>,
+  thumbsDown: <><path d="M7 14V3H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2zM7 14l5 8a2 2 0 0 0 2-2v-5h5a3 3 0 0 0 3-3l-1-6a3 3 0 0 0-3-3H7" /></>,
+  copy: <><rect x="8" y="8" width="12" height="13" rx="2" /><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3" /></>,
+  train: <><rect x="5" y="3" width="14" height="16" rx="3" /><path d="M5 11h14M8 15h.01M16 15h.01M8 19l-2 3M16 19l2 3M9 3v5M15 3v5" /></>,
 }
 
 export function Icon({ name, size = 20, className = '' }) {

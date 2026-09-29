@@ -23,6 +23,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .brand { display: inline-flex; align-items: center; gap: 8px; font-size: 27px; font-weight: 800; letter-spacing: -1.5px; white-space: nowrap; }
 .brand b { color: #ff7118; }
 .brand-mark { width: 38px; height: 38px; flex: none; }
+.brand-government { gap: 7px; font-size: 21px; letter-spacing: -.8px; }
+.brand-government-mark { display: grid; place-items: center; width: 30px; height: 33px; color: #283d68; }
 .main-nav { display: flex; align-items: center; gap: clamp(7px, 1.15vw, 18px); }
 .nav-link { display: inline-flex; align-items: center; justify-content: center; gap: 3px; min-height: 42px; padding: 0 12px; border: 0; border-radius: 13px; color: #46536e; background: transparent; font-size: 14px; font-weight: 500; white-space: nowrap; }
 .nav-link:hover, .nav-link:focus-visible { color: #1266ef; background: #f2f7ff; }
@@ -33,8 +35,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .button-primary { color: white; background: linear-gradient(100deg, #ff6511, #ff871b); box-shadow: 0 9px 20px rgba(255, 110, 23, .2); }
 .button-primary:hover { background: #f3650e; box-shadow: 0 12px 22px rgba(255, 110, 23, .28); }
 .button-secondary { color: #1f315f; background: rgba(255,255,255,.83); border-color: #d9e4f3; box-shadow: 0 8px 22px rgba(25, 71, 140, .07); }
-.header-demo { min-height: 44px; font-size: 14px; padding: 0 21px; }
-.menu-toggle, .mobile-demo { display: none; }
+.header-auth { min-height: 44px; font-size: 14px; padding: 0 21px; }
+.menu-toggle, .mobile-auth { display: none; }
 .hero { min-height: 815px; display: grid; grid-template-columns: minmax(420px, .9fr) minmax(550px, 1.1fr); gap: 24px; align-items: start; }
 .hero-content { padding-top: 60px; position: relative; z-index: 2; }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 13px; border-radius: 20px; background: rgba(239, 245, 255, .92); color: #263957; font-weight: 700; font-size: 13px; }
@@ -128,20 +130,15 @@ h1 { max-width: 675px; margin: 18px 0 18px; color: #11172f; font-size: clamp(50p
 .modal-close { position: absolute; right: 20px; top: 20px; width: 35px; height: 35px; border: 0; border-radius: 50%; background: #edf3fb; color: #344462; display: grid; place-items: center; }
 .modal h2 { margin: 18px 0 12px; font-size: 30px; letter-spacing: -1px; }
 .modal p { color: #586982; line-height: 1.6; }
-.modal form { display: flex; flex-direction: column; }
-.modal label { margin: 10px 0 6px; font-size: 13px; font-weight: 700; }
-.modal input { width: 100%; height: 44px; padding: 0 13px; border: 1px solid #d6e1ef; border-radius: 9px; }
-.modal-submit { align-self: flex-start; margin-top: 20px; }
 .overview-copy ul { list-style: none; margin: 17px 0 0; padding: 0; }
 .overview-copy li { display: flex; gap: 10px; align-items: center; margin: 12px 0; color: #263859; }
-.overview-copy li svg, .modal-confirmation svg { color: #22b46d; flex: none; }
-.modal-confirmation { display: flex; align-items: center; gap: 15px; }
+.overview-copy li svg { color: #22b46d; flex: none; }
 @media (max-width: 1250px) {
   .site-header { gap: 12px; }
   .brand { font-size: 23px; }
   .brand-mark { width: 34px; height: 34px; }
   .nav-link { font-size: 12px; padding: 0 7px; }
-  .header-demo { padding: 0 14px; font-size: 12px; }
+  .header-auth { padding: 0 14px; font-size: 12px; }
   .hero { grid-template-columns: minmax(360px, .94fr) minmax(480px, 1.06fr); gap: 0; min-height: 700px; }
   h1 { font-size: clamp(48px, 5.1vw, 64px); }
   .insights { transform: scale(.89); transform-origin: top right; width: 112%; }
@@ -151,7 +148,7 @@ h1 { max-width: 675px; margin: 18px 0 18px; color: #11172f; font-size: clamp(50p
 @media (max-width: 950px) {
   .landing-page::before { background-size: auto 750px; background-position: 40% top; height: 780px; }
   .site-header { height: 72px; }
-  .header-demo { margin-left: auto; }
+  .header-auth { margin-left: auto; }
   .menu-toggle { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #dfe8f5; border-radius: 11px; background: rgba(255,255,255,.9); color: #1f3155; }
   .main-nav { display: none; position: absolute; top: 64px; left: 28px; right: 28px; flex-direction: column; align-items: stretch; gap: 3px; padding: 12px; border: 1px solid #dfebf9; border-radius: 17px; background: white; box-shadow: 0 18px 40px rgba(25,60,112,.18); }
   .main-nav.is-open { display: flex; }
@@ -172,8 +169,8 @@ h1 { max-width: 675px; margin: 18px 0 18px; color: #11172f; font-size: clamp(50p
   .site-header { height: 68px; }
   .brand { font-size: 21px; }
   .brand-mark { width: 32px; height: 32px; }
-  .header-demo { display: none; }
-  .mobile-demo { display: inline-flex; margin: 7px 8px 4px; }
+  .header-auth { display: none; }
+  .mobile-auth { display: inline-flex; margin: 7px 8px 4px; }
   .main-nav { left: 20px; right: 20px; top: 60px; }
   .hero-content { padding-top: 32px; }
   .eyebrow { font-size: 11px; }
