@@ -5,12 +5,15 @@ import { features, headlineStats, sectorBreakdown } from './constants/homeData'
 import { Icon } from './components/common/Icon'
 import { InfoModal } from './components/common/InfoModal'
 import { SiteHeader } from './components/layout/SiteHeader'
+import { SiteFooter } from './components/layout/SiteFooter'
 import { InsightCards } from './components/dashboard/InsightCards'
 import { CoreCapabilities } from './components/capabilities/CoreCapabilities'
 import { SectorCoverage } from './components/sectors/SectorCoverage'
 import { AssistantPage } from './pages/Assistant/AssistantPage'
 import { AuthPage } from './pages/Auth/AuthPage'
 const AnalyticsCoverage = lazy(() => import('./components/analytics/AnalyticsCoverage').then((module) => ({ default: module.AnalyticsCoverage })))
+const DashboardPage = lazy(() => import('./pages/Dashboard/DashboardPage').then((module) => ({ default: module.DashboardPage })))
+const DashboardAssistantPage = lazy(() => import('./pages/Dashboard/DashboardAssistantPage').then((module) => ({ default: module.DashboardAssistantPage })))
 import './index.css'
 
 function FeatureStrip() {
@@ -67,30 +70,37 @@ function LandingPage() {
   }, [])
 
   return (
-    <main className="landing-page" id="home" style={{ '--home-background': `url(${homeBackground})` }}>
-      <SiteHeader />
-      <div className="page-container">
-        <section aria-labelledby="hero-heading" className="hero">
-          <div className="hero-content">
-            <span className="eyebrow"><Icon name="sparkles" size={16} /> AI for Infrastructure Monitoring</span>
-            <h1 id="hero-heading">Predictive Infrastructure Monitoring for <span className="orange-text">Stronger</span> <span className="blue-text">Public Projects</span></h1>
-            <p className="hero-description">Leveraging AI within the PAIMANA / MoSPI ecosystem to monitor infrastructure projects, predict risks, prevent delays and enable evidence-based decision support for a stronger, more resilient India.</p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#coverage">Explore Dashboard <Icon name="arrowRight" size={19} /></a>
-              <button className="button button-secondary" onClick={() => setOverviewOpen(true)} type="button"><span className="play-icon"><Icon name="play" size={11} /></span> Watch Overview</button>
+    <>
+      <main className="landing-page" id="home" style={{ '--home-background': `url(${homeBackground})` }}>
+        <SiteHeader />
+        <div className="page-container">
+          <section aria-labelledby="hero-heading" className="hero">
+            <div className="hero-content">
+              <span className="eyebrow"><Icon name="sparkles" size={16} /> AI for Infrastructure Monitoring</span>
+              <h1 id="hero-heading">Predictive Infrastructure Monitoring for <span className="orange-text">Stronger</span> <span className="blue-text">Public Projects</span></h1>
+              <p className="hero-description">Leveraging AI within the PAIMANA / MoSPI ecosystem to monitor infrastructure projects, predict risks, prevent delays and enable evidence-based decision support for a stronger, more resilient India.</p>
+              <div className="hero-actions">
+                <a className="button button-primary" href="#coverage">Explore Dashboard <Icon name="arrowRight" size={19} /></a>
+                <button className="button button-secondary" onClick={() => setOverviewOpen(true)} type="button"><span className="play-icon"><Icon name="play" size={11} /></span> Watch Overview</button>
+              </div>
+              <FeatureStrip />
             </div>
-            <FeatureStrip />
-          </div>
-          <InsightCards sectors={sectorBreakdown} />
-        </section>
-        <HeadlineStats />
-      </div>
-      <CoreCapabilities />
-      <Suspense fallback={<section className="coverage-loading" id="coverage">Loading analytics…</section>}><AnalyticsCoverage /></Suspense>
-      <SectorCoverage />
+            <InsightCards sectors={sectorBreakdown} />
+          </section>
+          <HeadlineStats />
+        </div>
+        <CoreCapabilities />
+        <Suspense fallback={<section className="coverage-loading" id="coverage">Loading analytics…</section>}><AnalyticsCoverage /></Suspense>
+        <SectorCoverage />
+      </main>
+      <SiteFooter />
       {overviewOpen && <InfoModal onClose={() => setOverviewOpen(false)} />}
-    </main>
+    </>
   )
+}
+
+function DashboardScreen({ view = 'dashboard' }) {
+  return <Suspense fallback={<main className="dashboard-loading" role="status">Loading dashboard…</main>}><DashboardPage view={view} /></Suspense>
 }
 
 function App() {
@@ -100,6 +110,13 @@ function App() {
     <Route element={<AuthPage mode="login" />} path="/login" />
     <Route element={<AuthPage mode="signup" />} path="/signup" />
     <Route element={<AuthPage mode="reset" />} path="/forgot-password" />
+    <Route element={<DashboardScreen />} path="/dashboard" />
+    <Route element={<DashboardScreen view="projects" />} path="/dashboard/projects" />
+    <Route element={<DashboardScreen view="sectors" />} path="/dashboard/sectors" />
+    <Route element={<DashboardScreen view="states" />} path="/dashboard/states" />
+    <Route element={<DashboardScreen view="reports" />} path="/dashboard/reports" />
+    <Route element={<DashboardScreen view="bookmarks" />} path="/dashboard/bookmarks" />
+    <Route element={<Suspense fallback={<main className="dashboard-loading" role="status">Loading assistant…</main>}><DashboardAssistantPage /></Suspense>} path="/dashboard/assistant" />
     <Route element={<LandingPage />} path="*" />
     </Routes>
 }

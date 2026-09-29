@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Icon } from '../common/Icon'
 
 function AuthField({ autoComplete, icon, label, name, placeholder, reveal = false, type = 'text' }) {
@@ -26,6 +26,7 @@ const copy = {
 
 export function AuthForm({ mode }) {
   const [feedback, setFeedback] = useState(null)
+  const navigate = useNavigate()
   const isLogin = mode === 'login'
   const isSignup = mode === 'signup'
 
@@ -34,6 +35,14 @@ export function AuthForm({ mode }) {
     const values = new FormData(event.currentTarget)
     if (isSignup && values.get('password') !== values.get('confirmPassword')) {
       setFeedback({ error: true, message: 'Passwords do not match.' })
+      return
+    }
+    if (isLogin) {
+      const email = String(values.get('email') ?? '')
+      const firstPart = email.split('@')[0].split(/[._-]/)[0]
+      const name = firstPart ? firstPart.charAt(0).toUpperCase() + firstPart.slice(1) : 'Ratnesh'
+      window.sessionStorage.setItem('govtrackDemoUser', JSON.stringify({ name, email }))
+      navigate('/dashboard')
       return
     }
     const message = mode === 'reset'

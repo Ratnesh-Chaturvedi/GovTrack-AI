@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { assistantBackground } from '../../assets'
+import { assistantBackground, govTrackLogo } from '../../assets'
 import { createDemoReply, demoConversations } from '../../constants/assistantData'
 import { AssistantIntro } from '../../components/assistant/AssistantIntro'
 import { ChatComposer } from '../../components/assistant/ChatComposer'
@@ -32,7 +32,7 @@ function AssistantWorkspace({ activeConversation, activeId, conversations, onCle
     <section aria-label="GovTrack AI chat preview" className="assistant-workspace">
       <ChatHistory activeId={activeId} conversations={conversations} isOpen={historyOpen || Boolean(searchQuery)} onClear={onClear} onClose={() => setHistoryOpen(false)} onNew={onNew} onSearchChange={onSearchChange} onSelect={onSelect} searchQuery={searchQuery} />
       <div className="assistant-chat-pane">
-        <div className="assistant-mobile-chatbar"><strong><Icon name="bot" size={20} /> GovTrack AI <span>Demo</span></strong><button aria-controls="assistant-history" aria-expanded={historyOpen} onClick={() => setHistoryOpen((current) => !current)} type="button"><Icon name="chat" size={17} /> History</button></div>
+        <div className="assistant-mobile-chatbar"><strong><img alt="" aria-hidden="true" src={govTrackLogo} /> GovTrack AI <span>Demo</span></strong><button aria-controls="assistant-history" aria-expanded={historyOpen} onClick={() => setHistoryOpen((current) => !current)} type="button"><Icon name="chat" size={17} /> History</button></div>
         <ChatThread conversation={activeConversation} />
         <ChatComposer key={activeId ?? 'new'} onSend={onSend} />
       </div>
@@ -40,7 +40,7 @@ function AssistantWorkspace({ activeConversation, activeId, conversations, onCle
   )
 }
 
-export function AssistantPage() {
+export function AssistantPage({ embedded = false }) {
   const [conversations, setConversations] = useState(demoConversations)
   const [activeId, setActiveId] = useState(demoConversations[0].id)
   const [searchQuery, setSearchQuery] = useState('')
@@ -71,10 +71,10 @@ export function AssistantPage() {
   }
 
   return (
-    <main className="assistant-page" style={{ '--assistant-background': `url(${assistantBackground})` }}>
-      <SiteHeader page="assistant" />
+    <main className={`assistant-page${embedded ? ' assistant-page-embedded' : ''}`} style={embedded ? undefined : { '--assistant-background': `url(${assistantBackground})` }}>
+      {!embedded && <SiteHeader page="assistant" />}
       <div className="assistant-page-body">
-        <AssistantIntro />
+        {!embedded && <AssistantIntro />}
         <AssistantWorkspace activeConversation={activeConversation} activeId={activeId} conversations={conversations} onClear={clearHistory} onNew={() => setActiveId(null)} onSearchChange={setSearchQuery} onSelect={setActiveId} onSend={sendMessage} searchQuery={searchQuery} />
       </div>
     </main>

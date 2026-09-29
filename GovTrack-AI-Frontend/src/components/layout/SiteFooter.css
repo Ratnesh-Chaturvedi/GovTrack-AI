@@ -1,0 +1,72 @@
+.site-footer { position: relative; isolation: isolate; overflow: hidden; color: #132247; background: #fff; }
+.footer-container { max-width: 1328px; margin: 0 auto; padding: 10px clamp(24px, 3.2vw, 44px) 0; }
+.footer-callout { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 120px; padding: 18px 40px; overflow: hidden; border-radius: 12px; background: linear-gradient(105deg, #fff3ee 0%, #fffaf7 40%, #f7fbff 100%); }
+.footer-callout::after { content: ''; position: absolute; right: 0; top: 0; width: 38%; height: 100%; background: var(--footer-callout-image) left 47% / auto 220px no-repeat; opacity: .65; transform: scaleX(-1); mask-image: linear-gradient(to left, #000 35%, transparent 100%); pointer-events: none; }
+.footer-callout-copy, .footer-callout-actions { position: relative; z-index: 1; }
+.footer-kicker { display: block; margin-bottom: 4px; color: #7080a0; font-size: 11px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.footer-kicker::before { content: ''; display: block; width: 17px; height: 2px; margin-bottom: 6px; border-radius: 2px; background: #ff8a42; }
+.footer-callout h2 { margin: 0; color: #0b1940; font-size: clamp(27px, 3vw, 37px); font-weight: 800; line-height: 1.07; letter-spacing: -.045em; }
+.footer-callout h2 span { color: #ff6c18; }
+.footer-callout p { max-width: 650px; margin: 4px 0 0; color: #687b9d; font-size: 13px; font-weight: 500; line-height: 1.4; }
+.footer-callout-actions { display: flex; align-items: center; gap: 12px; flex: none; }
+.footer-callout-actions .button { min-height: 40px; padding: 0 20px; font-size: 12px; }
+.footer-callout-actions .button-secondary { border-color: #f4dccf; }
+.footer-main { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(135px, .62fr) minmax(280px, 1.15fr); gap: clamp(30px, 6vw, 90px); padding: 35px 38px 112px; }
+.footer-brand .brand { gap: 8px; font-size: 25px; letter-spacing: -.04em; }
+.footer-brand .brand-mark { width: 40px; height: 40px; }
+.footer-brand > span { display: block; margin: -2px 0 0 48px; color: #7b8aa5; font-size: 9px; font-weight: 500; }
+.footer-about > p:not(.footer-feedback) { max-width: 285px; margin: 20px 0 13px; color: #647596; font-size: 12px; line-height: 1.38; }
+.footer-socials { display: flex; gap: 10px; }
+.footer-socials button { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 0; border-radius: 8px; color: #2b416e; background: #eef3fb; font-size: 16px; font-weight: 800; }
+.footer-socials button:hover { color: #1266ef; background: #e3efff; }
+.footer-platform h3, .footer-updates h3 { margin: 2px 0 16px; color: #12204a; font-size: 14px; font-weight: 800; letter-spacing: -.02em; }
+.footer-platform a { display: block; width: max-content; max-width: 100%; margin-top: 11px; color: #617194; font-size: 12px; }
+.footer-platform a:hover, .footer-bottom a:hover { color: #ff6b18; }
+.footer-updates > p:not(.footer-feedback) { max-width: 320px; margin: -8px 0 13px; color: #68799a; font-size: 12px; line-height: 1.45; }
+.footer-updates form { display: flex; gap: 10px; }
+.footer-email-field { display: flex; align-items: center; gap: 9px; min-width: 0; height: 38px; flex: 1; padding: 0 12px; border: 1px solid #dce5f0; border-radius: 9px; color: #8090ad; background: #fff; }
+.footer-email-field:focus-within { border-color: #7da8ff; box-shadow: 0 0 0 3px rgba(63, 125, 242, .12); }
+.footer-email-field input { width: 100%; min-width: 0; height: 100%; border: 0; outline: 0; color: #25365b; background: transparent; font-size: 11px; }
+.footer-email-field input::placeholder { color: #9aabc4; }
+.footer-subscribe { min-height: 38px; padding: 0 18px; border: 0; border-radius: 9px; color: #fff; background: #ff701b; font-size: 12px; font-weight: 700; }
+.footer-subscribe:hover { background: #ee5e0a; }
+.footer-feedback { margin: 9px 0 0; color: #335f92; font-size: 11px; line-height: 1.35; }
+.footer-data-ecosystem { margin-top: 18px; padding-top: 14px; border-top: 1px solid #e7edf4; }
+.footer-data-ecosystem h4 { margin: 0 0 10px; color: #24365c; font-size: 11px; font-weight: 700; }
+.footer-data-ecosystem > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.footer-data-ecosystem span { padding: 7px 9px; border: 1px solid #e4ebf3; border-radius: 7px; color: #6b80a0; background: #fff; font-size: 10px; font-weight: 600; }
+.footer-skyline { position: absolute; z-index: -1; right: 0; bottom: -10px; left: 0; width: 100%; height: clamp(160px, 17.3vw, 230px); object-fit: cover; object-position: center 57%; opacity: .7; pointer-events: none; }
+.footer-bottom { position: relative; border-top: 1px solid #e4ebf3; background: rgba(255,255,255,.9); }
+.footer-bottom-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; max-width: 1328px; min-height: 43px; margin: 0 auto; padding: 0 clamp(24px, 4.5vw, 60px); color: #7787a4; font-size: 10px; }
+
+@media (max-width: 1050px) {
+  .footer-callout { padding: 20px 28px; }
+  .footer-main { gap: 32px; padding-right: 20px; padding-left: 20px; }
+  .footer-callout-actions .button { padding: 0 15px; }
+}
+
+@media (max-width: 850px) {
+  .footer-callout { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .footer-callout::after { width: 50%; }
+  .footer-main { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+  .footer-updates { grid-column: 1 / -1; max-width: 500px; }
+}
+
+@media (max-width: 580px) {
+  .footer-container { padding-right: 18px; padding-left: 18px; }
+  .footer-callout { padding: 22px; }
+  .footer-callout::after { width: 72%; opacity: .28; }
+  .footer-callout h2 { font-size: clamp(28px, 8vw, 36px); }
+  .footer-callout p { font-size: 12px; }
+  .footer-callout-actions { flex-wrap: wrap; gap: 9px; }
+  .footer-callout-actions .button { min-height: 39px; }
+  .footer-main { grid-template-columns: 1fr; gap: 31px; padding: 34px 10px 104px; }
+  .footer-platform { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
+  .footer-platform h3 { grid-column: 1 / -1; margin-bottom: 0; }
+  .footer-platform a { margin-top: 12px; }
+  .footer-updates { grid-column: auto; }
+  .footer-updates form { flex-wrap: wrap; }
+  .footer-email-field { flex-basis: 180px; }
+  .footer-bottom-inner { min-height: 54px; padding-right: 18px; padding-left: 18px; }
+  .footer-skyline { bottom: 21px; height: 140px; }
+}

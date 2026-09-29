@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { govTrackLogo } from '../../assets'
 import { Icon } from '../common/Icon'
 
 const links = [
@@ -13,10 +14,7 @@ const links = [
 export function Logo({ government = false, href = '#home' }) {
   return (
     <a aria-label="GovTrack AI home" className={`brand${government ? ' brand-government' : ''}`} href={href}>
-      {government ? <span className="brand-government-mark"><Icon name="government" size={28} /></span> : <svg aria-hidden="true" className="brand-mark" fill="none" viewBox="0 0 40 40">
-        <path d="m20 2 16 9v18l-16 9L4 29V11z" fill="#2569ef" />
-        <path d="m20 8 10 6-10 6-10-6zM10 20l10 6 10-6M10 26l10 6 10-6" stroke="white" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" />
-      </svg>}
+      <img alt="" aria-hidden="true" className="brand-mark" src={govTrackLogo} />
       <span>GovTrack <b>AI</b></span>
     </a>
   )
